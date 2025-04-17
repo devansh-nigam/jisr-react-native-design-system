@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {ScrollView} from 'react-native';
-import {Feather} from '@expo/vector-icons';
 import {useTheme} from '@shopify/restyle';
-import {Box, Text, Card, Button} from '../Components';
+import {Box, Text, Card, Button, Input} from '../Components';
 import {Theme} from '../Theme';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const LeaveRequestScreen = () => {
   const theme = useTheme<Theme>();
   const [leaveType, setLeaveType] = useState('annual');
-  //   const [startDate, setStartDate] = useState('');
-  //   const [endDate, setEndDate] = useState('');
-  //   const [reason, setReason] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [reason, setReason] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
@@ -49,14 +49,14 @@ const LeaveRequestScreen = () => {
               </Box>
             </Box>
 
-            {/* <Input
+            <Input
               label="Start Date"
               placeholder="Select start date"
               value={startDate}
               onChangeText={setStartDate}
               rightIcon={
-                <Feather
-                  name="calendar"
+                <MaterialCommunityIcons
+                  name="calendar-month-outline"
                   size={20}
                   color={theme.colors.textSecondary}
                 />
@@ -69,8 +69,8 @@ const LeaveRequestScreen = () => {
               value={endDate}
               onChangeText={setEndDate}
               rightIcon={
-                <Feather
-                  name="calendar"
+                <MaterialCommunityIcons
+                  name="calendar-month-outline"
                   size={20}
                   color={theme.colors.textSecondary}
                 />
@@ -85,12 +85,16 @@ const LeaveRequestScreen = () => {
               multiline
               numberOfLines={4}
               textAlignVertical="top"
-            /> */}
+            />
           </Card>
 
           <Card variant="secondary" marginBottom="l">
             <Box flexDirection="row" alignItems="center">
-              <Feather name="info" size={18} color={theme.colors.primaryBlue} />
+              <MaterialCommunityIcons
+                name="information-outline"
+                size={18}
+                color={theme.colors.primaryBlue}
+              />
               <Text variant="bodySmall" color="primaryBlue" marginLeft="s">
                 Your remaining {leaveType} leave balance is{' '}
                 {leaveType === 'annual'

@@ -1,11 +1,11 @@
 import React from 'react';
 import {ScrollView, TouchableOpacity} from 'react-native';
-// import {useNavigation} from '@react-navigation/native';
-// import {Feather} from '@expo/vector-icons';
 import {useTheme} from '@shopify/restyle';
 import {Box, Text, Card, Badge} from '../Components';
 import {Theme} from '../Theme';
 import {SafeAreaView} from 'react-native-safe-area-context';
+// import {useNavigation} from '@react-navigation/native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const HomeScreen = () => {
   //   const navigation = useNavigation();
@@ -28,7 +28,7 @@ const HomeScreen = () => {
                 alignItems="center">
                 <Box>
                   <Text variant="title" color="white" marginBottom="xs">
-                    Welcome back, Ahmed
+                    Welcome back, Devansh
                   </Text>
                   <Text variant="bodySmall" color="white" opacity={0.8}>
                     Thursday, April 17, 2025
@@ -41,7 +41,11 @@ const HomeScreen = () => {
                   borderRadius={20}
                   alignItems="center"
                   justifyContent="center">
-                  {/* <Feather name="sun" size={24} color="white" /> */}
+                  <MaterialCommunityIcons
+                    name="weather-sunny"
+                    size={24}
+                    color="white"
+                  />
                 </Box>
               </Box>
             </Box>
@@ -55,18 +59,18 @@ const HomeScreen = () => {
               <Box flexDirection="row" flexWrap="wrap" marginHorizontal="s">
                 <TouchableOpacity
                   style={{width: '50%', padding: theme.spacing.s}}
-                  //onPress={() => navigation.navigate('LeaveRequest')}
+                  //   onPress={() => navigation.navigate('LeaveRequest')}
                 >
                   <Card
                     variant="interactive"
                     height={100}
                     justifyContent="center"
                     alignItems="center">
-                    {/* <Feather
-                    name="clock"
-                    size={24}
-                    color={theme.colors.primaryBlue}
-                  /> */}
+                    <MaterialCommunityIcons
+                      name="clock-outline"
+                      size={24}
+                      color={theme.colors.primaryBlue}
+                    />
                     <Text variant="bodySmall" marginTop="s">
                       Leave Request
                     </Text>
@@ -80,6 +84,11 @@ const HomeScreen = () => {
                     height={100}
                     justifyContent="center"
                     alignItems="center">
+                    <MaterialCommunityIcons
+                      name="fingerprint"
+                      size={24}
+                      color={theme.colors.primaryBlue}
+                    />
                     <Text variant="bodySmall" marginTop="s">
                       Punch Correction
                     </Text>
@@ -93,13 +102,13 @@ const HomeScreen = () => {
                     height={100}
                     justifyContent="center"
                     alignItems="center">
-                    {/* <Feather
-                    name="file"
-                    size={24}
-                    color={theme.colors.primaryBlue}
-                  /> */}
+                    <MaterialCommunityIcons
+                      name="file-document-outline"
+                      size={24}
+                      color={theme.colors.primaryBlue}
+                    />
                     <Text variant="bodySmall" marginTop="s">
-                      Document Request
+                      Doc Request
                     </Text>
                   </Card>
                 </TouchableOpacity>
@@ -111,11 +120,11 @@ const HomeScreen = () => {
                     height={100}
                     justifyContent="center"
                     alignItems="center">
-                    {/* <Feather
-                    name="plus-circle"
-                    size={24}
-                    color={theme.colors.primaryBlue}
-                  /> */}
+                    <MaterialCommunityIcons
+                      name="plus-circle-outline"
+                      size={24}
+                      color={theme.colors.primaryBlue}
+                    />
                     <Text variant="bodySmall" marginTop="s">
                       New Request
                     </Text>
@@ -132,11 +141,11 @@ const HomeScreen = () => {
 
               <Card variant="primary" marginBottom="m">
                 <Box flexDirection="row" alignItems="center" marginBottom="m">
-                  {/* <Feather
-                  name="calendar"
-                  size={20}
-                  color={theme.colors.primaryBlue}
-                /> */}
+                  <MaterialCommunityIcons
+                    name="calendar-month-outline"
+                    size={20}
+                    color={theme.colors.primaryBlue}
+                  />
                   <Text variant="body" fontWeight="600" marginLeft="s">
                     Leave Balance
                   </Text>
@@ -168,11 +177,11 @@ const HomeScreen = () => {
 
               <Card variant="primary">
                 <Box flexDirection="row" alignItems="center" marginBottom="m">
-                  {/* <Feather
-                  name="clock"
-                  size={20}
-                  color={theme.colors.primaryBlue}
-                /> */}
+                  <MaterialCommunityIcons
+                    name="clock-outline"
+                    size={20}
+                    color={theme.colors.primaryBlue}
+                  />
                   <Text variant="body" fontWeight="600" marginLeft="s">
                     Recent Activity
                   </Text>
@@ -238,7 +247,7 @@ const HomeScreen = () => {
           shadowOffset={{width: 0, height: 4}}
           shadowRadius={8}
           elevation={5}>
-          {/* <Feather name="plus" size={24} color="white" /> */}
+          <MaterialCommunityIcons name="plus" size={24} color="white" />
         </Box>
       </Box>
     </SafeAreaView>
