@@ -1,130 +1,99 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+// App.js
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {SafeAreaView, ScrollView, View, StyleSheet} from 'react-native';
+import {ThemeProvider} from './src/theme/ThemeProvider';
+import {Button} from './src/components/Button';
+import {Card} from './src/components/Card';
+import {Typography} from './src/components/Typography';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <ThemeProvider>
+      <SafeAreaView style={styles.safeArea}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <View style={styles.container}>
+            <Typography variant="h2">Design System Demo</Typography>
+            <Typography variant="subtitle" style={styles.subtitle}>
+              Using style-dictionary with your design tokens
+            </Typography>
+
+            <View style={styles.section}>
+              <Typography variant="h4">Typography</Typography>
+              <Typography variant="h1">Heading 1</Typography>
+              <Typography variant="h2">Heading 2</Typography>
+              <Typography variant="h3">Heading 3</Typography>
+              <Typography variant="h4">Heading 4</Typography>
+              <Typography variant="h5">Heading 5</Typography>
+              <Typography variant="body">
+                Body text that demonstrates the default text style in the
+                application. This text is using the tokens from our design
+                system.
+              </Typography>
+              <Typography variant="caption">
+                Caption text is smaller and lighter
+              </Typography>
+            </View>
+
+            <View style={styles.section}>
+              <Typography variant="h4">Buttons</Typography>
+              <View style={styles.buttonRow}>
+                <Button title="Primary Button" onPress={() => {}} />
+                <Button title="Disabled" disabled onPress={() => {}} />
+              </View>
+            </View>
+
+            <View style={styles.section}>
+              <Typography variant="h4">Cards</Typography>
+              <Card title="Card Component">
+                <Typography variant="body">
+                  This card is styled using our design tokens. It includes
+                  proper spacing, border radius, and colors from our token
+                  system.
+                </Typography>
+                <Button
+                  title="Card Action"
+                  onPress={() => {}}
+                  style={styles.cardButton}
+                />
+              </Card>
+            </View>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </ThemeProvider>
   );
-}
+};
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the recommendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
-
-  return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
-  );
-}
-
+// These styles could also use the theme tokens,
+// but here we're keeping them simple for clarity
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  safeArea: {
+    flex: 1,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  scrollContainer: {
+    flexGrow: 1,
   },
-  sectionDescription: {
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  subtitle: {
     marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+    marginBottom: 24,
   },
-  highlight: {
-    fontWeight: '700',
+  section: {
+    marginVertical: 16,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    marginTop: 12,
+    flexWrap: 'wrap',
+    gap: 12,
+  },
+  cardButton: {
+    marginTop: 16,
+    alignSelf: 'flex-start',
   },
 });
 

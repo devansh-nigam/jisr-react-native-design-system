@@ -8,7 +8,10 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "pod-install": "cd ios && RCT_NEW_ARCH_ENABLED=1 pod install"
+    "pod-install": "cd ios && RCT_NEW_ARCH_ENABLED=1 pod install",
+    "transform-tokens": "node transform-tokens.js",
+    "build-tokens": "node build-tokens.js",
+    "generate-theme": "npm run transform-tokens && npm run build-tokens"
   },
   "dependencies": {
     "react": "19.0.0",
