@@ -9,9 +9,7 @@
     "start": "react-native start",
     "test": "jest",
     "pod-install": "cd ios && RCT_NEW_ARCH_ENABLED=1 pod install",
-    "transform-tokens": "node transform-tokens.js",
-    "build-tokens": "node build-tokens.js",
-    "generate-theme": "npm run transform-tokens && npm run build-tokens"
+    "specify-pull": "specify pull"
   },
   "dependencies": {
     "react": "19.0.0",
@@ -28,6 +26,7 @@
     "@react-native/eslint-config": "0.79.1",
     "@react-native/metro-config": "0.79.1",
     "@react-native/typescript-config": "0.79.1",
+    "@specifyapp/cli": "^1.2.0-beta.5",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.0.0",
     "@types/react-test-renderer": "^19.0.0",

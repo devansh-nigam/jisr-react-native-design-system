@@ -1,0 +1,55 @@
+{
+  "version": "2",
+  "repository": "@design-system-testing/JISR_Design_System",
+  "personalAccessToken": "00fe7b43a9b5c3eebb520b1ceadbee9639c633093e1cfe84d61fe182ce47bd0c",
+  "rules": [
+    {
+      "name": "Generate tokens as a React Native theme",
+      "parsers": [
+        {
+          "name": "convert-dimension",
+          "options": {
+            "toFormat": null
+          }
+        },
+        {
+          "name": "to-react-native",
+          "output": {
+            "type": "file",
+            "filePath": "theme.js"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Optimize and transform vectors with svgo + Generate JSX components",
+      "parsers": [
+        {
+          "name": "svgo",
+          "options": {
+            "svgo": {
+              "plugins": [
+                {
+                  "name": "removeDimensions"
+                },
+                {
+                  "name": "convertColors",
+                  "params": {
+                    "currentColor": true
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "svg-to-jsx",
+          "output": {
+            "type": "directory",
+            "directoryPath": "output/assets"
+          }
+        }
+      ]
+    }
+  ]
+}
